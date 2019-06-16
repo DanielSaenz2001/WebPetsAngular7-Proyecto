@@ -1,0 +1,30 @@
+<form #productoForm="ngForm" (ngSubmit)="onSubmit(productoForm)">
+  <fieldset>
+    <div class="form-group">
+      <label for="">Nombre</label>
+      <input type="text" class="form-control" placeholder="Nombre" name="nombre" 
+      #name="ngModel" [(ngModel)]="productoService.selectProducto.nombre">
+    </div>
+    <div class="form-group">
+      <label for="">Precio</label>
+      <input type="text" class="form-control" placeholder="Precio" name="precio" 
+      #name="ngModel" [(ngModel)]="productoService.selectProducto.precio">
+    </div>
+    <div class="form-group">
+      <label for="">Stock</label>
+      <input type="text" class="form-control" placeholder="Stock" name="stock" 
+      #name="ngModel" [(ngModel)]="productoService.selectProducto.stock">
+    </div>
+    <div class="form-group">
+      <label for="">Total</label>
+      <input type="text" class="form-control" placeholder="Total" name="total" 
+      #name="ngModel" [(ngModel)]="productoService.selectProducto.total">
+    </div>
+    <div class="form-group">
+      <label for="">Imagen</label>
+      <input type="text" class="form-control" placeholder="Imagen" name="imagen" 
+      #name="ngModel" [(ngModel)]="productoService.selectProducto.imagen">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>

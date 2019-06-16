@@ -1,0 +1,148 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+	background-color: black !important;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+}
+
+
+header{
+	background-image: url("assets/img/header-bg.png");
+	padding-top: 10px;
+}
+.cuerpo{
+	background-color: #f3f3f3;
+	border-radius: 0 0 20px 20px;
+	box-shadow: 0px 0px 25px #5aae32;
+}
+.titulo-productos{
+	border: #5aae32 solid 1px;
+	background-color: #0b5c22;
+	margin: 0 1% 0 1%;
+	color: white;
+}
+
+.lista-productos{
+	width: 98%;
+	display: flex;
+	flex-flow: row wrap;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.producto{
+    flex: 20%;
+	border: 1px solid #0b5c22;
+	text-align: center;
+	margin: 7px;
+	border-radius: 20px;
+    box-shadow: 5px 5px 5px #0b5c22;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.cart{
+	width: 70px;
+	height: 82px;
+	background-image: url("assets/img/cart-bg.png"	);
+}
+
+.buscador{
+	margin-top: 50px;
+}
+
+.texto1{
+	color: #0b5c22;
+	font-size: 1.8em;
+}
+
+.texto2{
+	color: #5aae32;
+	font-size: 1.3em;
+}
+
+.texto-cart{
+	color: white;
+	font-size: 2em;
+	text-align: center;
+	padding-top: 15px;
+}
+
+.categorias{
+	margin-top: 20px;
+}
+
+.menu:hover{
+	background-color: #f8f8f8;
+	color: #5aae32 !important;
+}
+
+.nav-menu{
+	margin-left: 27% !important;
+	font-weight: bold;
+}
+
+.logo2{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.telefono2{
+	text-align: center;
+	margin-top: 20px;
+	font-size: 1.3em;
+}
+
+.copyright {
+	text-align: center;
+    background: #313131;
+    margin-top: 10px;
+    color: #fff;
+    font: 0.8em 'Lato', sans-serif;
+    text-transform: uppercase;
+	padding: 10px 0 10px 0;
+	border-radius: 20px;
+}
+
+.imagenp{
+	transform: scale(0.9);
+}
+
+.imagenp:hover{
+	transform: scale(1.1) rotate(15deg);
+	filter: contrast(200%);
+}
+
+.activo{
+	background-color: #f8f8f8 !important;
+	color: #5aae32 !important;
+	border: #5aae32 1px solid;
+}
+
+@media (min-width: 0px) and (max-width:600px){
+	.producto{
+		flex: 40%;
+	}
+	.ocultar{
+		display: none;
+	}
+	.cart{
+		margin-left: 60%;
+	}
+
+}
+
+@media (min-width: 601px) and (max-width:991px){
+	.producto{
+		flex: 30%;
+	}
+	.ocultar{
+		display: none;
+	}
+	.cart{
+		margin-left: 70%;
+	}
+}
