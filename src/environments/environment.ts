@@ -5,13 +5,13 @@
 export const environment = {
   production: true,
   firebaseConfig:{
-    apiKey: "AIzaSyAF3T3uKgTmTM0BjW9DsgIjaqVF1KquDPg",
-    authDomain: "appwebpets-1c9c9.firebaseapp.com",
-    databaseURL: "https://appwebpets-1c9c9.firebaseio.com",
-    projectId: "appwebpets-1c9c9",
-    storageBucket: "appwebpets-1c9c9.appspot.com",
-    messagingSenderId: "489579630237",
-    appId: "1:489579630237:web:d4ecc377c8452777"
+    apiKey: "AIzaSyDgpTdqZVwUAL7mUu_4l2gRH20ydZ1xvn0",
+    authDomain: "webpetsangular7.firebaseapp.com",
+    databaseURL: "https://webpetsangular7.firebaseio.com",
+    projectId: "webpetsangular7",
+    storageBucket: "webpetsangular7.appspot.com",
+    messagingSenderId: "746894691335",
+    appId: "1:746894691335:web:746f629a7c90db5d"
   }
 };
 

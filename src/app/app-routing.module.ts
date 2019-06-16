@@ -5,6 +5,7 @@ import { EmpresaComponent } from './view/empresa/empresa.component';
 import { ProductosComponent } from './view/productos/productos.component';
 import { EspecialesComponent } from './view/especiales/especiales.component';
 import { ContactoComponent } from './view/contacto/contacto.component';
+import { VentasComponent } from './view/ventas/ventas.component';
 import { LoginComponent } from './view/login/login.component';
 import { AdminComponent } from './view/admin/admin.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'productos',component:ProductosComponent},
   {path:'especiales',component:EspecialesComponent},
   {path:'contacto',component:ContactoComponent},
+  {path:'ventas',component:VentasComponent},
   {path:'login',component:LoginComponent},
   {path:'admin',component:AdminComponent}
 ];

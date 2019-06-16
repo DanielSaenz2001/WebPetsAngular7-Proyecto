@@ -19,6 +19,10 @@ import { ProductoAddComponent } from './view/productos/producto-add/producto-add
 import { ProductoListComponent } from './view/productos/producto-list/producto-list.component';
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { AdminComponent } from './view/admin/admin.component';
+import { VentasComponent } from './view/ventas/ventas.component';
+import { ClienteComponent } from './view/ventas/cliente/cliente.component';
+import { ProductoComponent } from './view/ventas/producto/producto.component';
+import { VentaDetalleComponent } from './view/ventas/venta-detalle/venta-detalle.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,10 @@ import { AdminComponent } from './view/admin/admin.component';
     ProductoAddComponent,
     ProductoListComponent,
     AdminComponent,
+    VentasComponent,
+    ClienteComponent,
+    ProductoComponent,
+    VentaDetalleComponent,
   ],
   imports: [
     BrowserModule,

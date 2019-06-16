@@ -4,7 +4,18 @@ body{
 	margin-top: 10px !important;
 	margin-bottom: 10px !important;
 }
-
+.btn{
+    background-color: #0b5c22 !important;
+}
+#var {
+    background-color: #0b5c22 !important;
+}
+.collapse {
+	background-color: #0b5c22 !important;
+}
+.navbar-nav{
+	background-color: #0b5c22 !important;
+}
 
 header{
 	background-image: url("assets/img/header-bg.png");
