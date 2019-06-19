@@ -3,6 +3,6 @@ export class Producto {
     nombre:string;
     precio:number;
     stock:number;
-    total:number;
+    um:string;
     imagen:string;
 }
