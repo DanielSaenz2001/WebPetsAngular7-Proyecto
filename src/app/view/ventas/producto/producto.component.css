@@ -1,0 +1,13 @@
+.container{ 
+  background-color: blue;
+  border-radius: 10px 10px 0 0;
+}
+
+.boton{
+  border-radius: 10px 10px 0 0;
+  background-color: #5b7989;
+}  
+.center{
+	text-align: center;
+	margin: auto;
+}
