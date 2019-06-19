@@ -1,3 +1,35 @@
-<p>
-  cliente-add works!
-</p>
+<form #clienteForm="ngForm" (ngSubmit)="onSubmit(clienteForm)">
+  <fieldset>
+    <div class="form-group">
+      <label for="">Nombre</label>
+      <input type="text" class="form-control" placeholder="Nombre" name="nombre" 
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.nombre">
+    </div>
+    <div class="form-group">
+      <label for="">Fecha de nacimiento</label>
+      <input type="text" class="form-control" placeholder="Fecha" name="fecha" 
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.fecha">
+    </div>
+    <div class="form-group">
+      <label for="">DNI</label>
+      <input type="text" class="form-control" placeholder="DNI" name="dni" 
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.dni">
+    </div>
+    <div class="form-group">
+      <label for="">Direccion</label>
+      <input type="text" class="form-control" placeholder="Direccion" name="direccion" 
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.direccion">
+    </div>
+    <div class="form-group">
+      <label for="">Estado</label>
+      <input type="text" class="form-control" placeholder="Estado" name="estado" 
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.estado">
+    </div>
+    <div class="form-group">
+      <label for="">Comprobante</label>
+      <input type="text" class="form-control" placeholder="Comprobante" name="comprobante" 
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.comprobante">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>

@@ -1,3 +1,21 @@
-<p>
-  cliente-list works!
-</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">DNI</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Comprobante</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of productoList">
+      <th scope="row">{{data.nombre}}</th>
+      <td>{{data.precio}}</td>
+      <td>{{data.stock}}</td>
+      <td>{{data.um}}</td>
+      <td>{{data.imagen}}</td>
+    </tr>
+  </tbody>
+</table> 
