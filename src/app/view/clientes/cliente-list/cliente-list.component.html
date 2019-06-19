@@ -10,12 +10,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of productoList">
+    <tr *ngFor="let data of clienteList">
       <th scope="row">{{data.nombre}}</th>
-      <td>{{data.precio}}</td>
-      <td>{{data.stock}}</td>
-      <td>{{data.um}}</td>
-      <td>{{data.imagen}}</td>
+      <td>{{data.fecha}}</td>
+      <td>{{data.dni}}</td>
+      <td>{{data.direccion}}</td>
+      <td>{{data.estado}}</td>
+      <td>{{data.comprobante}}</td>
     </tr>
   </tbody>
 </table> 

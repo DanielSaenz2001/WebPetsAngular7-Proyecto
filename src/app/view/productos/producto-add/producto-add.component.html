@@ -1,4 +1,4 @@
-<form #productoForm="ngForm" (ngSubmit)="onSubmit(productoForm)">
+<form #productoForm="ngForm" (ngSubmit)="onSubmit(productoForm)" method="post">
   <fieldset>
     <div class="form-group">
       <label for="">Nombre</label>
@@ -22,9 +22,10 @@
     </div>
     <div class="form-group">
       <label for="">Imagen</label>
-      <input type="text" class="form-control" placeholder="Imagen" name="imagen" 
+      <input type="file" class="form-control" placeholder="Imagen" name="imagen" 
       #name="ngModel" [(ngModel)]="productoService.selectProducto.imagen">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-primary">Limpiar</button>
   </fieldset>
 </form>
