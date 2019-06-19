@@ -23,8 +23,9 @@ import { VentasComponent } from './view/ventas/ventas.component';
 import { ClienteComponent } from './view/ventas/cliente/cliente.component';
 import { ProductoComponent } from './view/ventas/producto/producto.component';
 import { VentaDetalleComponent } from './view/ventas/venta-detalle/venta-detalle.component';
-import { ClienteAddComponent } from './view/cliente/cliente-add/cliente-add.component';
-import { ClienteListComponent } from './view/cliente/cliente-list/cliente-list.component';
+import { ClientesComponent } from './view/clientes/clientes.component';
+import { ClienteListComponent } from './view/clientes/cliente-list/cliente-list.component';
+import { ClienteAddComponent } from './view/clientes/cliente-add/cliente-add.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,9 @@ import { ClienteListComponent } from './view/cliente/cliente-list/cliente-list.c
     ClienteComponent,
     ProductoComponent,
     VentaDetalleComponent,
-    ClienteAddComponent,
+    ClientesComponent,
     ClienteListComponent,
+    ClienteAddComponent,
   ],
   imports: [
     BrowserModule,

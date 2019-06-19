@@ -8,6 +8,7 @@ import { ContactoComponent } from './view/contacto/contacto.component';
 import { VentasComponent } from './view/ventas/ventas.component';
 import { LoginComponent } from './view/login/login.component';
 import { AdminComponent } from './view/admin/admin.component';
+import { ClientesComponent } from './view/clientes/clientes.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'contacto',component:ContactoComponent},
   {path:'ventas',component:VentasComponent},
   {path:'login',component:LoginComponent},
-  {path:'admin',component:AdminComponent}
+  {path:'admin',component:AdminComponent},
+  {path:'clientes',component:ClientesComponent}
 ];
 
 @NgModule({
