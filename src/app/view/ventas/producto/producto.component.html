@@ -1,34 +1,39 @@
+<div class="row" id="buscar">
+    <div class="col-6">
+        <div class="container">
+            <input type="text" class="form-control" id="buscar" placeholder="buscar persona" [(ngModel)]='buscar'>
+        </div>
+    </div>
+    <div class="col-6">
+        <button class="btn btn-primary" (click)='consuProducto();'> Consultar</button>
+    </div>
+</div>
 <div class="container">
 	<div class="row">Datos Productos</div>
 	<div class="row">
       <div class="col-lg-12">
       	<label><b>PRODUCTOS</b></label> <br>
-      	<input type="text" name="" id="" style="width: 100%">
+      	<input type="text" name="" id="" style="width: 100%" disabled *ngFor="let data of productoList" value={{data.nombre}}>
       </div>
     </div>
     <div class="row">
-     <div class="col-lg-4">
-      <label><b>STOCK</b></label> <br>
-      <input type="text" name="" id="" style="width: 100%">
-     </div>
-    
-    <div class="col-lg-4">
-      	<label><b>UNIDAD DE MEDIDA</b></label> <br>
-      	<input type="text" name="" id="" style="width: 100%">
+    <div class="col-lg-6">
+      	<label><b>UNIDAD</b></label> <br>
+      	<input type="text" name="" id="" style="width: 100%"disabled *ngFor="let data of productoList" value={{data.um}}>
       </div>
-    <div class="col-lg-4">
-      	<label><b>VALOR UNITARIO</b></label> <br>
-      	<input type="text" name="" id="" style="width: 100%">
+    <div class="col-lg-6">
+      	<label><b>PRECIO/U</b></label> <br>
+      	<input type="text" name="" id="" style="width: 100%"disabled *ngFor="let data of productoList" value={{data.precio}}>
       </div>
     </div>
     <div class="row">
-     <div class="col-lg-4">
+     <div class="col-lg-6">
       <label><b>CANTIDAD</b></label> <br>
       <input type="text" name="" id="" style="width: 100%">
      </div>
-     <div class="col-lg-4">
+     <div class="col-lg-6">
       <label><b>IMPORTE</b></label> <br>
-      <input type="text" name="" id="" style="width: 100%">
+      <input type="text" name="" id="" style="width: 100%"disabled >
      </div>
     </div>
     <div class="row" >
@@ -37,3 +42,5 @@
     	</div>
     </div>
  </div> 
+
+

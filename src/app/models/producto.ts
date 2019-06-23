@@ -5,4 +5,5 @@ export class Producto {
     stock:number;
     um:string;
     imagen:string;
+    codigo:string;
 }

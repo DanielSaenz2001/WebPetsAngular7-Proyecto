@@ -16,9 +16,14 @@
       #name="ngModel" [(ngModel)]="productoService.selectProducto.stock">
     </div>
     <div class="form-group">
+      <label for="">Codigo</label>
+      <input type="text" class="form-control" placeholder="Codigo" name="codigo" 
+      #name="ngModel" [(ngModel)]="productoService.selectProducto.codigo">
+    </div>
+    <div class="form-group">
       <label for="">Unidad de medida</label>
       <input type="text" class="form-control" placeholder="um" name="um" 
-      #name="ngModel" [(ngModel)]="productoService.selectProducto.total">
+      #name="ngModel" [(ngModel)]="productoService.selectProducto.um">
     </div>
     <div class="form-group">
       <label for="">Imagen</label>
