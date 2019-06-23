@@ -38,9 +38,6 @@ thead{
 #titulo{
     color:white;
     text-align: center;
-    
-    
-    
 }
 #ttt{
     border-radius:5px 5px;
@@ -67,3 +64,38 @@ input {
     background-color: #3D403B !important;
     margin: 2%;
 }
+#lizz{ 
+  background-color: #404040;
+  border-radius: 10px 10px 10px 10px;
+  border: black 3px solid;
+  padding: 2%;
+
+}
+
+#boton{
+  border-radius: 10px 10px 0 0;
+  background-color: #5b7989;
+}  
+.center{
+    text-align: center;
+    margin: auto;
+}
+
+#Consultar{
+    background-color: #607d8b !important;
+    margin: 2%;
+}
+
+#buscar{
+    margin: 5%;
+    padding-left: 10%;
+}
+#titulos{
+    color:white;
+    text-align: center;
+    border: black 2px solid;
+    border-radius:10px 10px 10px 10px ;
+
+
+}
+
