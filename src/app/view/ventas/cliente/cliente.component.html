@@ -1,16 +1,16 @@
 <div class="row" id="buscar">
     <div class="col-6">
         <div class="container">
-            <input type="text" class="form-control" id="buscar" placeholder="buscar persona" [(ngModel)]='buscar'>
+            <input type="text" class="form-control" id="buscar" placeholder="Buscar Cliente" [(ngModel)]='buscar'>
         </div>
     </div>
     <div class="col-6">
-        <button class="btn btn-primary" (click)='consuCliente();'> Consultar</button>
+        <button id="Consultar" class="btn btn-primary" (click)='consuCliente();'> Consultar</button>
     </div>
 </div>
 <form>
     <div id="general">
-        <div id="titulo"><p>Datos del Cliente</p></div>
+        <div id="tit"><p>Datos del Cliente</p></div>
         <div class="row" id="fer" >
             <div class="col-6">
                 <div class="row">
@@ -44,12 +44,10 @@
                     </div>
                     <div class="col-7">
                         <label><div id="titulo"><b>Comprobante</b></div></label><br>
-                        <input type="text" disabled *ngFor="let data of clienteList" value={{data.comprobante}}>
+                        <input type="text" style="width: 100% " disabled *ngFor="let data of clienteList" value={{data.comprobante}}>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </form>
-
-

@@ -2,14 +2,42 @@
     padding-left: 10%;
 }
 #general{
-    background-color: black;
-    border-radius:5px 5px 5px 5px ;
+    background-color: #3D403B;
+    border-radius:10px 10px 10px 10px ;
+    border: black 2px solid;
+    margin: 2%;
+    
 
 }
 #titulo{
     color:white;
     text-align: center;
+    
+    
+    
 }
 #ttt{
     border-radius:5px 5px;
+}
+#tit{
+    color:white;
+    text-align: center;
+    border: black 2px solid;
+    border-radius:10px 10px 10px 10px ;
+
+}
+input {
+
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+#buscar{
+    margin: 2%;
+
+}
+#Consultar{
+    background-color: #3D403B !important;
+    margin: 2%;
 }
