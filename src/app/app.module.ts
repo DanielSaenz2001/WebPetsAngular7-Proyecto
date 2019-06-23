@@ -21,7 +21,6 @@ import { FormsModule } from '../../node_modules/@angular/forms';
 import { AdminComponent } from './view/admin/admin.component';
 import { VentasComponent } from './view/ventas/ventas.component';
 import { ProductoComponent } from './view/ventas/producto/producto.component';
-import { VentaDetalleComponent } from './view/ventas/venta-detalle/venta-detalle.component';
 import { ClientesComponent } from './view/clientes/clientes.component';
 import { ClienteListComponent } from './view/clientes/cliente-list/cliente-list.component';
 import { ClienteAddComponent } from './view/clientes/cliente-add/cliente-add.component';
@@ -40,7 +39,6 @@ import { ClienteAddComponent } from './view/clientes/cliente-add/cliente-add.com
     AdminComponent,
     VentasComponent,
     ProductoComponent,
-    VentaDetalleComponent,
     ClientesComponent,
     ClienteListComponent,
     ClienteAddComponent,
