@@ -25,7 +25,8 @@ export class ProductosService {
       precio:producto.precio,
       stock:producto.stock,
       um:producto.um,
-      imagen:producto.imagen
+      imagen:producto.imagen,
+      codigo:producto.codigo
     })
   }
 
@@ -36,7 +37,8 @@ export class ProductosService {
       precio:producto.precio,
       stock:producto.stock,
       um:producto.um,
-      imagen:producto.imagen
+      imagen:producto.imagen,
+      codigo:producto.codigo
     })
   }
 
