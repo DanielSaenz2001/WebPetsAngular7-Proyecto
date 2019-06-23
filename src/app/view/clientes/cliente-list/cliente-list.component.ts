@@ -49,6 +49,7 @@ export class ClienteListComponent implements OnInit {
           timer: 1500
         })
       }else{
+        this.mostrarclientes();
         Swal.fire({
           position:'top-end',
           type: "success",
