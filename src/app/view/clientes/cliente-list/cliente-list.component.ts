@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../../models/cliente';
 import { ClientesService } from '../../../service/clientes.service';
-import { element } from '../../../../../node_modules/@angular/core/src/render3';
 import  Swal  from 'sweetalert2'
-import { type } from 'os';
 
 @Component({
   selector: 'app-cliente-list',

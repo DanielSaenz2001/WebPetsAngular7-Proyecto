@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../../models/cliente';
 import { ClientesService } from '../../../service/clientes.service';
-import { element } from '../../../../../node_modules/@angular/core/src/render3';
-import  Swal  from 'sweetalert2'
-import { type } from 'os';
+import  Swal  from 'sweetalert2';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-cliente',
@@ -30,6 +29,7 @@ export class ClienteComponent implements OnInit {
     });
   }
   consuCliente(){
+    console.log('dada');
   	this.clientesService.getClientes().snapshotChanges().subscribe(item=>{
       this.clienteList=[];
       item.forEach(element=>{
@@ -45,7 +45,7 @@ export class ClienteComponent implements OnInit {
           position:'top-end',
           type: "success",
           title: 'Cliente No Encontrado',
-          showConfirmButton: false,
+          showConfirmButton: true,
           timer: 1500
         })
       }else{
@@ -53,7 +53,7 @@ export class ClienteComponent implements OnInit {
           position:'top-end',
           type: "success",
           title: 'Cliente Encontrado',
-          showConfirmButton: false,
+          showConfirmButton: true,
           timer: 1500
       })
     }
