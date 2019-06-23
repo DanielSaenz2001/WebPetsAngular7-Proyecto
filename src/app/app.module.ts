@@ -20,7 +20,6 @@ import { ProductoListComponent } from './view/productos/producto-list/producto-l
 import { FormsModule } from '../../node_modules/@angular/forms';
 import { AdminComponent } from './view/admin/admin.component';
 import { VentasComponent } from './view/ventas/ventas.component';
-import { ClienteComponent } from './view/ventas/cliente/cliente.component';
 import { ProductoComponent } from './view/ventas/producto/producto.component';
 import { VentaDetalleComponent } from './view/ventas/venta-detalle/venta-detalle.component';
 import { ClientesComponent } from './view/clientes/clientes.component';
@@ -40,7 +39,6 @@ import { ClienteAddComponent } from './view/clientes/cliente-add/cliente-add.com
     ProductoListComponent,
     AdminComponent,
     VentasComponent,
-    ClienteComponent,
     ProductoComponent,
     VentaDetalleComponent,
     ClientesComponent,

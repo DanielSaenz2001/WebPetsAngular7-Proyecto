@@ -41,7 +41,7 @@ export class ClienteListComponent implements OnInit {
       if(this.clienteList.length===0){
         Swal.fire({
           position:'top-end',
-          type: "success",
+          type: "error",
           title: 'Cliente No Encontrado',
           showConfirmButton: false,
           timer: 1500
