@@ -1,3 +1,7 @@
+<div class="container">
+  <input type="text" class="form-control" id="buscar" placeholder="buscar persona" [(ngModel)]='buscar'>
+  <button class="btn btn-primary" (click)='consuCliente();'> Consultar</button>
+</div>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -16,7 +20,7 @@
       <td>{{data.dni}}</td>
       <td>{{data.direccion}}</td>
       <td>{{data.estado}}</td>
-      <td>{{data.comprobante}}</td>
+      <td> <input type="text" name="" id="" value={{data.comprobante}}></td>
     </tr>
   </tbody>
 </table> 
