@@ -31,7 +31,7 @@ thead{
     background-color: #3D403B;
     border-radius:10px 10px 10px 10px ;
     border: black 2px solid;
-    margin: 2%;
+    margin: 1%;
     
 
 }
@@ -57,18 +57,18 @@ input {
   border-radius: 10px;
 }
 #buscar{
-    margin: 2%;
+    margin: 1%;
 
 }
 #Consultar{
     background-color: #3D403B !important;
-    margin: 2%;
+    margin: 1%;
 }
 #lizz{ 
   background-color: #404040;
   border-radius: 10px 10px 10px 10px;
   border: black 3px solid;
-  padding: 2%;
+  padding: 1%;
 
 }
 
@@ -83,11 +83,11 @@ input {
 
 #Consultar{
     background-color: #607d8b !important;
-    margin: 2%;
+    margin: 1%;
 }
 
 #buscar{
-    margin: 5%;
+    margin: 1%;
     padding-left: 10%;
 }
 #titulos{
