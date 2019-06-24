@@ -18,7 +18,7 @@ export class VentasComponent implements OnInit {
   productoList: Producto[];
   buscar2:string;
   buscar:string;
-  constructor(private clientesService:ClientesService,private productosService:ProductosService) { }
+  constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService) { }
 
   ngOnInit() {
   }
@@ -83,6 +83,12 @@ export class VentasComponent implements OnInit {
       })
     }
     })
+  }
+  onSubmit(detallForm:NgForm){
+    this.ventadetallesService.insertDetalle(detallForm.value);
+  }
+  saludo(){
+    alert("funca");
   }
 
 }
