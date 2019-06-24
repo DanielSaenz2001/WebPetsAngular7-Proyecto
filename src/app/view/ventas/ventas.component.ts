@@ -5,7 +5,6 @@ import  Swal  from 'sweetalert2';
 import { Producto } from '../../models/producto';
 import { ProductosService } from '../../service/productos.service';
 import { VentadetallesService } from '../../service/ventadetalles.service';
-import { NgForm } from '@angular/forms';
 import { Ventadetalle } from '../../models/ventadetalle';
 
 
@@ -20,30 +19,37 @@ export class VentasComponent implements OnInit {
   detalleList: Ventadetalle[];
   buscar2:string;
   buscar:string;
-  html="<h1>hola</h1>";
+
+  total:number=0;
 
 
-  constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService) { }
-
+  constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService) { 
+  }
+    
   ngOnInit() {
-      this.html;
+    return this.ventadetallesService.getDetalles().snapshotChanges().subscribe(item=>{
+      this.detalleList=[];
+      item.forEach(element=>{
+        let x=element.payload.toJSON();
+        x["$key"]=element.key;
+        this.detalleList.push(x as Ventadetalle);
+      })
+    })
   }
   onNewItem(detalle:Ventadetalle,cantidad:string){
     console.log(detalle.nombre+" - "+cantidad);
     let subtotal=parseInt(cantidad)*parseFloat(detalle.precio);
     let antes=detalle.stock;
-    //item.unidades=cantidad;
-    //item.subtotal=String(subtotal);
-    //item.id=++this.lastId;
+    detalle.stock=String(parseInt(antes)-parseInt(cantidad));
     let newDetalle = new Ventadetalle;
     newDetalle.nombre = detalle.nombre;
     newDetalle.precio = detalle.precio;
-    newDetalle.stock = cantidad;
+    newDetalle.cantidad = cantidad;
+    newDetalle.stock = detalle.stock;
     newDetalle.subtotal = String(subtotal);
       //this.data.addTarea(newTarea)
 
     this.ventadetallesService.insertDetalle(newDetalle);
-    detalle.stock=String(parseInt(antes)-parseInt(cantidad));
   }
 
   consuProducto(){
@@ -110,6 +116,7 @@ export class VentasComponent implements OnInit {
     }
     })
   }
-  
-
+  onDelete($key:string){
+    this.ventadetallesService.deleteDetalle($key);
+  }
 }

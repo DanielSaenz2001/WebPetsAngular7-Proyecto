@@ -4,4 +4,5 @@ export class Ventadetalle {
     precio:string;
     stock:string;
     subtotal:string;
+    cantidad:string;
 }

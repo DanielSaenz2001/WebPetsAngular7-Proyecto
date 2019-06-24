@@ -92,7 +92,7 @@
 				
 				<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4">
 					<label><b>PRECIO</b></label> <br>
-					<input type="text" style="width: 100%" value={{1*data.precio}} name="precio" 
+					<input type="text" style="width: 100%" value={{data.precio}} name="precio" 
 					disabled>
 				</div>
 				<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4" >
@@ -102,10 +102,15 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-12 col-sm-6 col-md-6 col-xl-6 col-6" >
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-6" >
 					<label><b>CANTIDAD</b></label> <br>
 					<input type="text" name="CANTIDAD" style="width: 100%" value="0" name="cantidad" 
 					#inputx>
+				</div>
+				<div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-6" >
+					<label><b>STOCK</b></label> <br>
+					<input type="text" name="STOCK" style="width: 100%" value={{data.stock}} name="stock" 
+					disabled>
 				</div>
 			</div>
 			<div class="row" >
@@ -125,51 +130,44 @@
 			<thead>
 				<tr>
 					<th id="datost">
-						Descr.
+						Descripcion.
 					</th>		
 					<th  id="datost">
-						Cod.
+						Precio.
 					</th>
 					<th  id="datost">
-						UM
+						Cantidad.
 					</th>
 					<th  id="datost">
-						Prec.
+						Subtotal.
 					</th>
 					<th  id="datost">
-						Cant.
+						Acciones.
 					</th>
 					<th  id="datost">
-						Imp.
-					</th>
-					<th  id="datost">
-						Act.
+						Todo.
 					</th>
 				</tr>
 			</thead>
 			<tbody id="cuerpo">
-				<tr *ngFor="let data of detalleList">
+				<tr *ngFor="let data of detalleList" >
 					<td>
-						<input type="text" name="" id="datosa" disabled value={{data.producto}}>	
+						{{data.nombre}}
+					</td >
+					<td >
+						{{data.precio}}
 					</td>
 					<td>
-						<input type="text" name="" id="datosa" disabled value={{data.codigo}}>
+						{{data.cantidad}}
 					</td>
 					<td>
-						<input type="text" name="" id="datosa" disabled value={{data.um}}>
-						
+						{{data.subtotal}}
 					</td>
 					<td>
-						<input type="text" name="" id="datosa" disabled value={{data.precio}}>	
+						<input type="submit" id="ttt" (click)="onDelete(data.$key)" value="X" class="btn btn-danger">
 					</td>
 					<td>
-						<input type="text" name="" id="datosa" disabled value={{data.cantidad}}>
-					</td>
-					<td>
-						<input type="text" name="" id="datosa" disabled value={{data.importe}}>
-					</td>
-					<td>
-						<input type="submit" (click)="onDelete(data.$key)" value="X" class="btn btn-danger">
+						<input type="button" (click)="onDelete($key)" value="X" class="btn btn-danger" id="danger">
 					</td>
 				</tr>
 			</tbody>	
@@ -184,9 +182,9 @@
 			<div class="col-6 d-flex justify-content-center" id="padre">
 				<div class="tabla">
 					<table border="1px">
-						<tr *ngFor="let data of detalleList">
+						<tr>
 							<td> <b>Valor de Venta:</b></td>
-							<td>{{data.precio*data.cantidad}}</td>
+							<td *ngFor="let data of detalleList"> {{data.subtotal}}</td>
 						</tr>
 						<tr>
 							<td> <b>IGV:</b></td>

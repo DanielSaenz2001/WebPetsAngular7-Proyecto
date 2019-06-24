@@ -45,7 +45,8 @@ thead{
     text-align: center;
 }
 #ttt{
-    border-radius:5px 5px;
+    background-color: #3D403B !important;
+    margin: auto;
 }
 #tit{
     color:white;
@@ -101,3 +102,7 @@ input {
 
 }
 
+#danger{
+    background-color: red !important; 
+    color: black;
+}
