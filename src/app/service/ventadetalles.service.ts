@@ -17,24 +17,20 @@ export class VentadetallesService {
   }
   insertDetalle(ventadetalle:Ventadetalle){
     this.detalleList.push({
-      producto:ventadetalle.producto,
-      codigo:ventadetalle.codigo,
+      nombre:ventadetalle.nombre,
       precio:ventadetalle.precio,
-      um:ventadetalle.um,
-      cantidad:ventadetalle.cantidad,
-      importe:ventadetalle.importe
+      stock:ventadetalle.stock,
+      subtotal:ventadetalle.subtotal
     })
   }
 
   //Metodo para Actulizar un producto (UPDATE)
   udpateDetalle(ventadetalle:Ventadetalle){
     this.detalleList.update(ventadetalle.$key,{
-      producto:ventadetalle.producto,
-      codigo:ventadetalle.codigo,
+      nombre:ventadetalle.nombre,
       precio:ventadetalle.precio,
-      um:ventadetalle.um,
-      cantidad:ventadetalle.cantidad,
-      importe:ventadetalle.importe
+      stock:ventadetalle.stock,
+      subtotal:ventadetalle.subtotal
     })
   }
 

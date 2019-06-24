@@ -70,55 +70,49 @@
 				</div>
 			</div>
 		</div>
-		<div id="lizz"class="container" >
-			<form #detallForm="ngForm" (ngSubmit)="onSubmit(detallForm)">
-				<div class="row">
-					<div class="col-12 col-lg-12  col-sm-12 col-md-12 col-xl-12">
-						<div id="titulos">Datos Productos</div>
-					</div>
+		<div id="lizz"class="container" *ngFor="let data of productoList">
+			<div class="row">
+				<div class="col-12 col-lg-12  col-sm-12 col-md-12 col-xl-12">
+					<div id="titulos">Datos Productos</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-12  col-sm-12 col-md-12 col-xl-12 col-12">
-						<label><b>PRODUCTO</b></label> <br>
-						<input type="text" style="width: 100%"  *ngFor="let data of productoList" value={{data.nombre}} name="producto" 
-						#name="ngModel" [(ngModel)]="ventadetallesService.selectDetalle.producto">
-					</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12  col-sm-12 col-md-12 col-xl-12 col-12">
+					<label><b>PRODUCTO</b></label> <br>
+					<input type="text" style="width: 100%"   value={{data.nombre}} name="producto" 
+					disabled>
 				</div>
-				<div class="row">
-					<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4">
-						<label><b>UNIDAD</b></label> <br>
-						<input type="text" style="width: 100%" *ngFor="let data of productoList" value={{data.um}} name="um" 
-						#name="ngModel" [(ngModel)]="ventadetallesService.selectDetalle.um">
-					</div>
-					<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4">
-						<label><b>PRECIO/U</b></label> <br>
-						<input type="text" style="width: 100%" *ngFor="let data of productoList" value={{1*data.precio}} name="precio" 
-						#name="ngModel" [(ngModel)]="ventadetallesService.selectDetalle.precio">
-					</div>
-					<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4" *ngFor="let data of productoList">
-						<label><b>CODIGO</b></label> <br>
-						<input type="text" name="CODIGO" style="width: 100%" *ngFor="let data of productoList" value={{data.codigo}} name="codigo" 
-						#name="ngModel" [(ngModel)]="ventadetallesService.selectDetalle.codigo">
-					</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4">
+					<label><b>UNIDAD</b></label> <br>
+					<input type="text" style="width: 100%"  value={{data.um}} name="um" 
+					disabled>
 				</div>
-				<div class="row">
-					<div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-6" *ngFor="let data of productoList">
-						<label><b>CANTIDAD</b></label> <br>
-						<input type="text" name="CANTIDAD" style="width: 100%" value="0" [(ngModel)]="cantidad" name="cantidad" 
-						#name="ngModel" [(ngModel)]="ventadetallesService.selectDetalle.cantidad">
-					</div>
-					<div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-6" *ngFor="let data of productoList">
-						<label><b>IMPORTE</b></label> <br>
-						<input type="text" name="" id="IMPORTE" style="width: 100%" value="{{cantidad*data.precio}}" disblend name="importe" 
-						#name="ngModel" [(ngModel)]="ventadetallesService.selectDetalle.importe">
-					</div>
+				
+				<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4">
+					<label><b>PRECIO</b></label> <br>
+					<input type="text" style="width: 100%" value={{1*data.precio}} name="precio" 
+					disabled>
 				</div>
-				<div class="row" >
-					<div class="center">
-						<input type="submit" id="boton" value="Agregar">
-					</div>
+				<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4" >
+					<label><b>CODIGO</b></label> <br>
+					<input type="text" name="CODIGO" style="width: 100%" value={{data.codigo}} name="codigo" 
+					disabled>
 				</div>
-			</form>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-sm-6 col-md-6 col-xl-6 col-6" >
+					<label><b>CANTIDAD</b></label> <br>
+					<input type="text" name="CANTIDAD" style="width: 100%" value="0" name="cantidad" 
+					#inputx>
+				</div>
+			</div>
+			<div class="row" >
+				<div class="center">
+					<input type="button" id="boton" value="Agregar" *ngFor="let producto of productoList" (click)="onNewItem(producto,inputx.value)">
+				</div>
+			</div>
 		</div>  
   	</div>
 </div>

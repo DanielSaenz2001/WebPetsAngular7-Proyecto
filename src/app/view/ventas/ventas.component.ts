@@ -20,13 +20,32 @@ export class VentasComponent implements OnInit {
   detalleList: Ventadetalle[];
   buscar2:string;
   buscar:string;
+  html="<h1>hola</h1>";
 
 
   constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService) { }
 
   ngOnInit() {
-
+      this.html;
   }
+  onNewItem(detalle:Ventadetalle,cantidad:string){
+    console.log(detalle.nombre+" - "+cantidad);
+    let subtotal=parseInt(cantidad)*parseFloat(detalle.precio);
+    let antes=detalle.stock;
+    //item.unidades=cantidad;
+    //item.subtotal=String(subtotal);
+    //item.id=++this.lastId;
+    let newDetalle = new Ventadetalle;
+    newDetalle.nombre = detalle.nombre;
+    newDetalle.precio = detalle.precio;
+    newDetalle.stock = cantidad;
+    newDetalle.subtotal = String(subtotal);
+      //this.data.addTarea(newTarea)
+
+    this.ventadetallesService.insertDetalle(newDetalle);
+    detalle.stock=String(parseInt(antes)-parseInt(cantidad));
+  }
+
   consuProducto(){
     this.productosService.getProductos().snapshotChanges().subscribe(item=>{
       this.productoList=[];
@@ -91,19 +110,6 @@ export class VentasComponent implements OnInit {
     }
     })
   }
-  onSubmit(detallForm:NgForm){
-    this.ventadetallesService.insertDetalle(detallForm.value);
-    return this.ventadetallesService.getDetalles().snapshotChanges().subscribe(item=>{
-      this.detalleList=[];
-      item.forEach(element=>{
-        let x=element.payload.toJSON();
-        x["$key"]=element.key;
-        this.detalleList.push(x as Ventadetalle);
-      })
-    })
-  }
-  onDelete($key:string){
-    this.ventadetallesService.deleteDetalle($key);
-  }
+  
 
 }
