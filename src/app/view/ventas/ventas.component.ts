@@ -6,6 +6,7 @@ import { Producto } from '../../models/producto';
 import { ProductosService } from '../../service/productos.service';
 import { VentadetallesService } from '../../service/ventadetalles.service';
 import { NgForm } from '@angular/forms';
+import { Ventadetalle } from '../../models/ventadetalle';
 
 
 @Component({
@@ -16,11 +17,15 @@ import { NgForm } from '@angular/forms';
 export class VentasComponent implements OnInit {
   clienteList: Cliente[];
   productoList: Producto[];
+  detalleList: Ventadetalle[];
   buscar2:string;
   buscar:string;
+
+
   constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService) { }
 
   ngOnInit() {
+
   }
   consuProducto(){
     this.productosService.getProductos().snapshotChanges().subscribe(item=>{
@@ -31,7 +36,7 @@ export class VentasComponent implements OnInit {
         this.productoList.push(x as Producto);
       });
       this.productoList=this.productoList.filter(data=>{
-        return data.codigo.toString().trim()===this.buscar2;
+        return data.codigo.toString().trim()===this.buscar2;   
       })
       if(this.productoList.length===0){
         Swal.fire({
@@ -50,7 +55,9 @@ export class VentasComponent implements OnInit {
           timer: 1500
       })
     }
+    
     })
+    
   }
 
 
@@ -63,7 +70,7 @@ export class VentasComponent implements OnInit {
         this.clienteList.push(x as Cliente);
       });
       this.clienteList=this.clienteList.filter(data=>{
-    	  return data.dni.toString().trim()===this.buscar;
+        return data.dni.toString().trim()===this.buscar; 
       })
       if(this.clienteList.length===0){
         Swal.fire({
@@ -86,9 +93,17 @@ export class VentasComponent implements OnInit {
   }
   onSubmit(detallForm:NgForm){
     this.ventadetallesService.insertDetalle(detallForm.value);
+    return this.ventadetallesService.getDetalles().snapshotChanges().subscribe(item=>{
+      this.detalleList=[];
+      item.forEach(element=>{
+        let x=element.payload.toJSON();
+        x["$key"]=element.key;
+        this.detalleList.push(x as Ventadetalle);
+      })
+    })
   }
-  saludo(){
-    alert("funca");
+  onDelete($key:string){
+    this.ventadetallesService.deleteDetalle($key);
   }
 
 }
