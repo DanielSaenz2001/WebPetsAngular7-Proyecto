@@ -3,32 +3,32 @@
     <div class="form-group">
       <label for="">Nombre</label>
       <input type="text" class="form-control" placeholder="Nombre" name="nombre" 
-      #name="ngModel" [(ngModel)]="clienteService.selectCliente.nombre">
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.nombre" maxlength="30" required>
     </div>
     <div class="form-group">
       <label for="">Fecha de nacimiento</label>
       <input type="date" class="form-control" placeholder="Fecha" name="fecha" 
-      #name="ngModel" [(ngModel)]="clienteService.selectCliente.fecha">
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.fecha" required>
     </div>
     <div class="form-group">
       <label for="">DNI</label>
       <input type="text" class="form-control" placeholder="DNI" name="dni" 
-      #name="ngModel" [(ngModel)]="clienteService.selectCliente.dni">
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.dni" maxlength="8" required>
     </div>
     <div class="form-group">
       <label for="">Direccion</label>
       <input type="text" class="form-control" placeholder="Direccion" name="direccion" 
-      #name="ngModel" [(ngModel)]="clienteService.selectCliente.direccion">
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.direccion" maxlength="30" required>
     </div>
     <div class="form-group">
       <label for="">Estado</label>
       <input type="text" class="form-control" placeholder="Estado" name="estado" 
-      #name="ngModel" [(ngModel)]="clienteService.selectCliente.estado">
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.estado" maxlength="10" required>
     </div>
     <div class="form-group">
       <label for="">Comprobante</label>
       <input type="text" class="form-control" placeholder="Comprobante" name="comprobante" 
-      #name="ngModel" [(ngModel)]="clienteService.selectCliente.comprobante">
+      #name="ngModel" [(ngModel)]="clienteService.selectCliente.comprobante" maxlength="15" required>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </fieldset>
