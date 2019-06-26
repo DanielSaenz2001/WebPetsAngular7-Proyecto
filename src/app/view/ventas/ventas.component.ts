@@ -19,7 +19,7 @@ export class VentasComponent implements OnInit {
   detalleList: Ventadetalle[];
   buscar2:string;
   buscar:string;
-
+  mydate = Date.now();
   total:number;
   igv:number;
   tototal:number;
@@ -133,4 +133,5 @@ export class VentasComponent implements OnInit {
   onDelete($key:string){
     this.ventadetallesService.deleteDetalle($key);
   }
+  
 }
