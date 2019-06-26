@@ -1,218 +1,219 @@
 <h3 class="titulo-productos text-center">Nuestras Ventas || {{ mydate | date }}</h3>
-<div class="row">
-	<div class="col-lg-4 col-xl-4 col-md-4 col-sm-12 col-12">
-  		<div class="row" id="buscar">
-			<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
-				<div class="container">
-					<input type="text" maxlength="5" class="form-control" id="buscar2" placeholder="Buscar Producto" [(ngModel)]='buscar2'>  
+<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-xl-4 col-md-4 col-sm-12 col-12">
+				<div class="row" id="buscar">
+					<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
+						<div class="container">
+							<input type="text" maxlength="5" class="form-control" id="buscar2" placeholder="Buscar Producto" [(ngModel)]='buscar2'>  
+						</div>
+					</div>
+					<div class="col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 ">
+						<div class="container">
+							<button id="Consultar"class="btn btn-primary" (click)='consuProducto();'> Consultar</button>
+						</div>
+					</div>
 				</div>
+				<div id="lizz"class="container" *ngFor="let data of productoList">
+					<div class="row">
+						<div class="col-12 col-lg-12  col-sm-12 col-md-12 col-xl-12">
+							<div id="titulos">Datos Productos</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12  col-sm-12 col-md-12 col-xl-12 col-12">
+							<label><b>PRODUCTO</b></label> <br>
+							<input type="text" style="width: 100%"   value={{data.nombre}} name="producto" 
+							disabled>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4">
+							<label><b>UNIDAD</b></label> <br>
+							<input type="text" style="width: 100%"  value={{data.um}} name="um" 
+							disabled>
+						</div>
+						
+						<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4">
+							<label><b>PRECIO</b></label> <br>
+							<input type="text" style="width: 100%" value={{data.precio}} name="precio" 
+							disabled>
+						</div>
+						<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4" >
+							<label><b>CODIGO</b></label> <br>
+							<input type="text" name="CODIGO" style="width: 100%" value={{data.codigo}} name="codigo" 
+							disabled>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-6" >
+							<label><b>CANTIDAD</b></label> <br>
+							<input type="text" name="CANTIDAD" style="width: 100%" value="0" name="cantidad" 
+							#inputx>
+						</div>
+						<div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-6" >
+							<label><b>STOCK</b></label> <br>
+							<input type="text" name="STOCK" style="width: 100%" value={{data.stock}} name="stock" 
+							disabled>
+						</div>
+					</div>
+					<div class="row" >
+						<div class="center">
+							<input type="button" id="boton" value="Agregar" *ngFor="let producto of productoList" (click)="onNewItem(producto,inputx.value)">
+						</div>
+					</div>
+				</div>  
 			</div>
-			<div class="col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 ">
-				<div class="container">
-					<button id="Consultar"class="btn btn-primary" (click)='consuProducto();'> Consultar</button>
+			<div class="col-lg-8 col-xl-8 col-md-8 col-sm-12 col-12">
+				<div class="row" id="buscar">
+					<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
+						<div class="container">
+							<input type="text" maxlength="8" class="form-control" id="buscar" placeholder="Buscar Cliente" [(ngModel)]='buscar'>
+						</div>
+					</div>
+					<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
+						<div class="container">
+							<button id="Consultar" class="btn btn-primary" (click)='consuCliente();'> Consultar</button>
+						</div>
+					</div>
 				</div>
+				<form *ngFor="let data of clienteList">
+					<div id="general">
+						<div id="tit"><p>Datos del Cliente</p></div>
+						<div class="row" id="fer" *ngFor="let data of clienteList" >
+							<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6 ">
+								<div class="row">
+									<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
+										<label><div id="titulo"><b>Nombre:</b></div></label><br>
+										<input type="text" style="width: 100%" disabled value={{data.nombre}} name="cliente">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-7 col-lg-7 col-xl-7 col-md-7 col-sm-7">
+										<label ><div id="titulo"><b>Fecha</b></div></label><br>
+										<input type="date" style="width: 116%" disabled  value={{data.fecha}}>
+									</div>
+									<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
+										<label><div id="titulo"><b>DNI</b></div></label><br>
+										<input type="text" maxlength="8" style="width: 100%" disabled value={{data.dni}}>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6">
+								<div class="row">
+									<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
+										<label><div id="titulo"><b>Direccion</b></div></label> <br>
+										<input type="text" style="width: 100%" disabled  value={{data.direccion}} name="direccion">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
+										<label><div id="titulo"><b>Estado</b></div></label> <br>
+										<input type="text" maxlength="10" style="width: 100%" disabled value={{data.estado}}>
+									</div>
+									<div class="col-7 col-lg-7 col-xl-7 col-md-7 col-sm-7">
+										<label><div id="titulo"><b>Comprobante</b></div></label><br>
+										<input type="text" style="width: 100% " disabled  value={{data.comprobante}}>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>			
 			</div>
 		</div>
-		<div id="lizz"class="container" *ngFor="let data of productoList">
+		<div class="row">
+		<div class="col-lg-12 .col-xl-12 .col-md-12 .col-sm-12 col-12">
 			<div class="row">
-				<div class="col-12 col-lg-12  col-sm-12 col-md-12 col-xl-12">
-					<div id="titulos">Datos Productos</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12  col-sm-12 col-md-12 col-xl-12 col-12">
-					<label><b>PRODUCTO</b></label> <br>
-					<input type="text" style="width: 100%"   value={{data.nombre}} name="producto" 
-					disabled>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4">
-					<label><b>UNIDAD</b></label> <br>
-					<input type="text" style="width: 100%"  value={{data.um}} name="um" 
-					disabled>
-				</div>
-				
-				<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4">
-					<label><b>PRECIO</b></label> <br>
-					<input type="text" style="width: 100%" value={{data.precio}} name="precio" 
-					disabled>
-				</div>
-				<div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 col-4" >
-					<label><b>CODIGO</b></label> <br>
-					<input type="text" name="CODIGO" style="width: 100%" value={{data.codigo}} name="codigo" 
-					disabled>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-6" >
-					<label><b>CANTIDAD</b></label> <br>
-					<input type="text" name="CANTIDAD" style="width: 100%" value="0" name="cantidad" 
-					#inputx>
-				</div>
-				<div class="col-lg-6 col-sm-6 col-md-6 col-xl-6 col-6" >
-					<label><b>STOCK</b></label> <br>
-					<input type="text" name="STOCK" style="width: 100%" value={{data.stock}} name="stock" 
-					disabled>
-				</div>
-			</div>
-			<div class="row" >
-				<div class="center">
-					<input type="button" id="boton" value="Agregar" *ngFor="let producto of productoList" (click)="onNewItem(producto,inputx.value)">
-				</div>
-			</div>
-		</div>  
-  	</div>
-	<div class="col-lg-8 col-xl-8 col-md-8 col-sm-12 col-12">
-		<div class="row" id="buscar">
-			<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
 				<div class="container">
-					<input type="text" maxlength="8" class="form-control" id="buscar" placeholder="Buscar Cliente" [(ngModel)]='buscar'>
-				</div>
-			</div>
-			<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
-				<div class="container">
-					<button id="Consultar" class="btn btn-primary" (click)='consuCliente();'> Consultar</button>
-				</div>
-			</div>
-		</div>
-		<form *ngFor="let data of clienteList">
-			<div id="general">
-				<div id="tit"><p>Datos del Cliente</p></div>
-				<div class="row" id="fer" *ngFor="let data of clienteList" >
-					<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6 ">
-						<div class="row">
-							<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
-								<label><div id="titulo"><b>Nombre:</b></div></label><br>
-								<input type="text" style="width: 100%" disabled value={{data.nombre}} name="cliente">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-7 col-lg-7 col-xl-7 col-md-7 col-sm-7">
-								<label ><div id="titulo"><b>Fecha</b></div></label><br>
-								<input type="date" style="width: 116%" disabled  value={{data.fecha}}>
-							</div>
-							<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
-								<label><div id="titulo"><b>DNI</b></div></label><br>
-								<input type="text" maxlength="8" style="width: 100%" disabled value={{data.dni}}>
-							</div>
-						</div>
-					</div>
-					<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6">
-						<div class="row">
-							<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
-								<label><div id="titulo"><b>Direccion</b></div></label> <br>
-								<input type="text" style="width: 100%" disabled  value={{data.direccion}} name="direccion">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
-								<label><div id="titulo"><b>Estado</b></div></label> <br>
-								<input type="text" maxlength="10" style="width: 100%" disabled value={{data.estado}}>
-							</div>
-							<div class="col-7 col-lg-7 col-xl-7 col-md-7 col-sm-7">
-								<label><div id="titulo"><b>Comprobante</b></div></label><br>
-								<input type="text" style="width: 100% " disabled  value={{data.comprobante}}>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>			
-	</div>
-</div>
-<div class="row">
-  <div class="col-lg-12 .col-xl-12 .col-md-12 .col-sm-12 col-12">
-	<div class="row">
-			<input type="text" value="{{mydate|date:'dd/MM/y'}}" disabled name="fecha">
-	</div>
-  	<div class="row">
-  		<div class="container">
-			<div class="row">
-				<table border="1px">
-					<thead>
-						<tr>
-							<th id="datost">
-								Descripcion.
-							</th>		
-							<th  id="datost">
-								Precio.
-							</th>
-							<th  id="datost">
-								Cantidad.
-							</th>
-							<th  id="datost">
-								Subtotal.
-							</th>
-							<th  id="datost">
-								Acciones.
-							</th>
-							<th  id="datost">
-								Todo.
-							</th>
-						</tr>
-					</thead>
-					<tbody id="cuerpo">
-						<tr *ngFor="let data of detalleList" >
-							<td>
-								<input type="text" value={{data.nombre}} disabled>
-							</td >
-							<td >
-								<input type="text" value="{{ data.precio | currency }}" disabled>
-							</td>
-							<td>
-								<input type="text" value={{data.cantidad}} disabled>
-							</td>
-							<td>
-								<input type="text" value="{{ data.subtotal | currency }}" disabled>								
-							</td>
-							<td>
-								<input type="submit" id="ttt" (click)="onDelete(data.$key)" value="X" class="btn btn-danger">
-							</td>
-							<td>
-								<input type="button" (click)="onDelete($key)" value="X" class="btn btn-danger" id="danger">
-							</td>
-						</tr>
-					</tbody>	
-				</table>	
-			</div>
-			<div class="row">
-				<div class="col-6 col-lg-6 .col-xl-6 .col-md-6 .col-sm-6">
-					<div class="texto">
-						Un Sol con 0/100 nuevos soles
-					</div>
-				</div>
-				<div class="col-6 d-flex justify-content-center" id="padre">
-					<div class="tabla">
+					<div class="row">
 						<table border="1px">
-							<tr>
-								<td> <b>Valor de Venta:</b></td>
-								<td>
-									<input type="text" value="{{ total | currency }}" disabled name="subtotal">
-								</td>
-							</tr>
-							<tr>
-								<td> <b>IGV:</b></td>
-								<td>
-									<input type="text" value="{{ igv | currency }}" disabled name="igv">
-								</td>
-							</tr>
-							<tr>
-								<td> <b>Importe Total:</b></td>
-								<td>
-									<input type="text" value="{{ tototal | currency }}" disabled name="total">
-								</td>
-							</tr>
+							<thead>
+								<tr>
+									<th id="datost">
+										Descripcion.
+									</th>		
+									<th  id="datost">
+										Precio.
+									</th>
+									<th  id="datost">
+										Cantidad.
+									</th>
+									<th  id="datost">
+										Subtotal.
+									</th>
+									<th  id="datost">
+										Acciones.
+									</th>
+									<th  id="datost">
+										Todo.
+									</th>
+								</tr>
+							</thead>
+							<tbody id="cuerpo">
+								<tr *ngFor="let data of detalleList" >
+									<td>
+										<input type="text" value={{data.nombre}} disabled>
+									</td >
+									<td >
+										<input type="text" value="{{ data.precio | currency }}" disabled>
+									</td>
+									<td>
+										<input type="text" value={{data.cantidad}} disabled>
+									</td>
+									<td>
+										<input type="text" value="{{ data.subtotal | currency }}" disabled>								
+									</td>
+									<td>
+										<input type="submit" id="ttt" (click)="onDelete(data.$key)" value="X" class="btn btn-danger">
+									</td>
+									<td>
+										<input type="button" (click)="onDelete($key)" value="X" class="btn btn-danger" id="danger">
+									</td>
+								</tr>
+							</tbody>	
 						</table>	
 					</div>
+					<div class="row">
+						<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6">
+							<div class="texto">
+								Un Sol con 0/100 nuevos soles
+							</div>
+						</div>
+						<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6 d-flex justify-content-center" id="padre">
+							<div class="tabla">
+								<table border="1px">
+									<tr>
+										<td> <b>Fecha:</b></td>
+										<td>
+											<input type="text" value="{{mydate|date:'dd/MM/y'}}" name="fecha" disabled>
+										</td>
+									</tr>
+									<tr>
+										<td> <b>Valor de Venta:</b></td>
+										<td>
+											<input type="text" value="{{ total }}" disabled name="subtotal">
+										</td>
+									</tr>
+									<tr>
+										<td> <b>IGV:</b></td>
+										<td>
+											<input type="text" value="{{ igv  }}" disabled name="igv">
+										</td>
+									</tr>
+									<tr>
+										<td> <b>Importe Total:</b></td>
+										<td>
+											<input type="text" value="{{ tototal }}" disabled name="total">
+										</td>
+									</tr>
+								</table>	
+							</div>
+						</div>
+					</div>		
 				</div>
-			</div>		
+			</div>
 		</div>
 	</div>
-	<div class="row" >
-		<div class="center">
-			<input type="button" id="boton" value="Agregar" *ngFor="let venta of detalleList" (click)="onNewVenta(venta)">
-		</div>
-	</div>
-  </div>
+	<input type="button" id="boton" value="Agregar" (click)="onNewFactura(data)">
 </div>

@@ -1,4 +1,4 @@
-export class Venta {
+export class Fact {
     $key:string;
     total:string;
     igv:string;

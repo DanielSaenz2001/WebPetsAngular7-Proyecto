@@ -17,7 +17,7 @@ export class VentaService {
   }
   insertVenta(venta:Venta){
     this.ventaList.push({
-      fecha:venta.fecha,
+      
       subtotal:venta.subtotal,
       igv:venta.igv,
       total:venta.total

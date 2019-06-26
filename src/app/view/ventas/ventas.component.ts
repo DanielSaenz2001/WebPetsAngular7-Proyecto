@@ -8,43 +8,55 @@ import { VentadetallesService } from '../../service/ventadetalles.service';
 import { Ventadetalle } from '../../models/ventadetalle';
 import { Venta } from '../../models/venta';
 import { VentaService } from '../../service/venta.service';
+import { Fact } from '../../models/fact';
+import { FacturaService } from '../../service/factura.service';
+import { DatePipe } from '@angular/common'
+
 
 
 @Component({
   selector: 'app-ventas',
   templateUrl: './ventas.component.html',
-  styleUrls: ['./ventas.component.css']
+  styleUrls: ['./ventas.component.css'],
+  providers:[DatePipe]
 })
 export class VentasComponent implements OnInit {
   clienteList: Cliente[];
   productoList: Producto[];
   detalleList: Ventadetalle[];
   ventaList: Venta[];
+  factList: Fact[];
+  DatePipe:DatePipe;
+
   buscar2:string;
   buscar:string;
   mydate = Date.now();
+  date:number;
   total:number;
   igv:number;
   tototal:number;
   algo:number;
   acc=0;
+  fe:string;
 
+  
 
-  constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService
-    , public ventaService:VentaService) { 
+  constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService, public ventaService:VentaService, public factService:FacturaService, private datepipe: DatePipe) { 
+ 
   }
     
   ngOnInit() {
-
+ 
   }
-  onNewVenta(factura:Venta){
-    console.log(factura.fecha+" - "+factura.total);
-    let NewVenta= new Venta;
-    NewVenta.fecha = factura.fecha;
-    NewVenta.subtotal = factura.subtotal;
-    NewVenta.igv = factura.igv;
-    NewVenta.total = factura.total;
-    this.ventaService.insertVenta(NewVenta);
+  onNewFactura(cliente:Cliente){
+    this.date = Date.now();
+    let latest_date =this.datepipe.transform(this.date, 'yyyy-MM-dd');
+    let NewFactura= new Fact;
+    NewFactura.fecha = String(latest_date);
+    NewFactura.subtotal = String(this.total);
+    NewFactura.igv = String(this.igv);
+    NewFactura.total = String(this.tototal);
+    this.factService.insertFact(NewFactura);
   }
   onNewItem(detalle:Ventadetalle,cantidad:string){
     console.log(detalle.nombre+" - "+cantidad);
