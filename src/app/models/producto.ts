@@ -6,4 +6,5 @@ export class Producto {
     um:string;
     imagen:string;
     codigo:string;
+    
 }

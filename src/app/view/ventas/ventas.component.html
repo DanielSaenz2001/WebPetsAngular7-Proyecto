@@ -1,62 +1,5 @@
 <h3 class="titulo-productos text-center">Nuestras Ventas</h3>
 <div class="row">
-	<div class="col-lg-8 col-xl-8 col-md-8 col-sm-12 col-12">
-		<div class="row" id="buscar">
-			<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
-				<div class="container">
-					<input type="text" maxlength="8" class="form-control" id="buscar" placeholder="Buscar Cliente" [(ngModel)]='buscar'>
-				</div>
-			</div>
-			<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
-				<div class="container">
-					<button id="Consultar" class="btn btn-primary" (click)='consuCliente();'> Consultar</button>
-				</div>
-			</div>
-		</div>
-		<form *ngFor="let data of clienteList">
-			<div id="general">
-				<div id="tit"><p>Datos del Cliente</p></div>
-				<div class="row" id="fer" >
-					<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6 ">
-						<div class="row">
-							<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
-								<label><div id="titulo"><b>Nombre:</b></div></label><br>
-								<input type="text" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.nombre}}>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-7 col-lg-7 col-xl-7 col-md-7 col-sm-7">
-								<label ><div id="titulo"><b>Fecha</b></div></label><br>
-								<input type="date" style="width: 116%" disabled  value={{data.fecha}}>
-							</div>
-							<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
-								<label><div id="titulo"><b>DNI</b></div></label><br>
-								<input type="text" maxlength="8" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.dni}}>
-							</div>
-						</div>
-					</div>
-					<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6">
-						<div class="row">
-							<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
-								<label><div id="titulo"><b>Direccion</b></div></label> <br>
-								<input type="text" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.direccion}}>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
-								<label><div id="titulo"><b>Estado</b></div></label> <br>
-								<input type="text" maxlength="10" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.estado}}>
-							</div>
-							<div class="col-7 col-lg-7 col-xl-7 col-md-7 col-sm-7">
-								<label><div id="titulo"><b>Comprobante</b></div></label><br>
-								<input type="text" style="width: 100% " disabled *ngFor="let data of clienteList" value={{data.comprobante}}>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>			
-	</div>
 	<div class="col-lg-4 col-xl-4 col-md-4 col-sm-12 col-12">
   		<div class="row" id="buscar">
 			<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
@@ -120,6 +63,63 @@
 			</div>
 		</div>  
   	</div>
+	<div class="col-lg-8 col-xl-8 col-md-8 col-sm-12 col-12">
+		<div class="row" id="buscar">
+			<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
+				<div class="container">
+					<input type="text" maxlength="8" class="form-control" id="buscar" placeholder="Buscar Cliente" [(ngModel)]='buscar'>
+				</div>
+			</div>
+			<div class="col-6 col-lg-6 col-xl-6 col-md-12 col-sm-6">
+				<div class="container">
+					<button id="Consultar" class="btn btn-primary" (click)='consuCliente();'> Consultar</button>
+				</div>
+			</div>
+		</div>
+		<form *ngFor="let data of clienteList">
+			<div id="general">
+				<div id="tit"><p>Datos del Cliente</p></div>
+				<div class="row" id="fer" >
+					<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6 ">
+						<div class="row">
+							<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
+								<label><div id="titulo"><b>Nombre:</b></div></label><br>
+								<input type="text" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.nombre}}>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-7 col-lg-7 col-xl-7 col-md-7 col-sm-7">
+								<label ><div id="titulo"><b>Fecha</b></div></label><br>
+								<input type="date" style="width: 116%" disabled  value={{data.fecha}}>
+							</div>
+							<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
+								<label><div id="titulo"><b>DNI</b></div></label><br>
+								<input type="text" maxlength="8" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.dni}}>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6">
+						<div class="row">
+							<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
+								<label><div id="titulo"><b>Direccion</b></div></label> <br>
+								<input type="text" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.direccion}}>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
+								<label><div id="titulo"><b>Estado</b></div></label> <br>
+								<input type="text" maxlength="10" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.estado}}>
+							</div>
+							<div class="col-7 col-lg-7 col-xl-7 col-md-7 col-sm-7">
+								<label><div id="titulo"><b>Comprobante</b></div></label><br>
+								<input type="text" style="width: 100% " disabled *ngFor="let data of clienteList" value={{data.comprobante}}>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>			
+	</div>
 </div>
 <div class="row">
   <div class="col-lg-12 .col-xl-12 .col-md-12 .col-sm-12 col-12">
@@ -155,13 +155,13 @@
 						{{data.nombre}}
 					</td >
 					<td >
-						{{data.precio}}
+						{{ data.precio | currency }}
 					</td>
 					<td>
 						{{data.cantidad}}
 					</td>
 					<td>
-						{{data.subtotal}}
+						{{ data.subtotal | currency }}
 					</td>
 					<td>
 						<input type="submit" id="ttt" (click)="onDelete(data.$key)" value="X" class="btn btn-danger">
@@ -184,15 +184,15 @@
 					<table border="1px">
 						<tr>
 							<td> <b>Valor de Venta:</b></td>
-							<td *ngFor="let data of detalleList"> {{data.subtotal}}</td>
+							<td>{{ total | currency }}</td>
 						</tr>
 						<tr>
 							<td> <b>IGV:</b></td>
-							<td>0</td>
+							<td>{{ igv | currency }}</td>
 						</tr>
 						<tr>
 							<td> <b>Importe Total:</b></td>
-							<td>0</td>
+							<td>{{ tototal | currency }}</td>
 						</tr>
 					</table>	
 				</div>

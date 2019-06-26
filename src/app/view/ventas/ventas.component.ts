@@ -20,27 +20,24 @@ export class VentasComponent implements OnInit {
   buscar2:string;
   buscar:string;
 
-  total:number=0;
-
+  total:number;
+  igv:number;
+  tototal:number;
+  algo:number;
+  acc=0;
 
   constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService) { 
   }
     
   ngOnInit() {
-    return this.ventadetallesService.getDetalles().snapshotChanges().subscribe(item=>{
-      this.detalleList=[];
-      item.forEach(element=>{
-        let x=element.payload.toJSON();
-        x["$key"]=element.key;
-        this.detalleList.push(x as Ventadetalle);
-      })
-    })
+
   }
   onNewItem(detalle:Ventadetalle,cantidad:string){
     console.log(detalle.nombre+" - "+cantidad);
     let subtotal=parseInt(cantidad)*parseFloat(detalle.precio);
     let antes=detalle.stock;
     detalle.stock=String(parseInt(antes)-parseInt(cantidad));
+
     let newDetalle = new Ventadetalle;
     newDetalle.nombre = detalle.nombre;
     newDetalle.precio = detalle.precio;
@@ -50,6 +47,23 @@ export class VentasComponent implements OnInit {
       //this.data.addTarea(newTarea)
 
     this.ventadetallesService.insertDetalle(newDetalle);
+
+
+    return this.ventadetallesService.getDetalles().snapshotChanges().subscribe(item=>{
+      this.detalleList=[];
+      item.forEach(element=>{
+        let x=element.payload.toJSON();
+        x["$key"]=element.key;
+        this.detalleList.push(x as Ventadetalle);
+      });
+      this.total = this.detalleList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)),0);
+        console.log("Total: ", this.total);
+      this.igv = this.detalleList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)/100),0);
+        console.log("IGV: ", this.igv);
+      this.tototal = this.detalleList.reduce((acc,obj,) => acc + ((parseFloat(obj.subtotal)/100) + (parseFloat(obj.subtotal))) ,0);
+        console.log("tototal: ", this.tototal);
+    });
+    
   }
 
   consuProducto(){
