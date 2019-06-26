@@ -8,7 +8,7 @@ import { Ventadetalle } from '../models/ventadetalle';
 export class VentadetallesService {
   detalleList: AngularFireList<any>;
   selectDetalle: Ventadetalle=new Ventadetalle;
-  item:Ventadetalle[]=[];
+
   constructor(private firebase:AngularFireDatabase) { 
     this.detalleList=this.firebase.list('detalles');
   }
@@ -42,4 +42,5 @@ export class VentadetallesService {
   deleteDetalle($key:string){
     this.detalleList.remove($key);
   }
+    
 }

@@ -6,6 +6,8 @@ import { Producto } from '../../models/producto';
 import { ProductosService } from '../../service/productos.service';
 import { VentadetallesService } from '../../service/ventadetalles.service';
 import { Ventadetalle } from '../../models/ventadetalle';
+import { Venta } from '../../models/venta';
+import { VentaService } from '../../service/venta.service';
 
 
 @Component({
@@ -17,6 +19,7 @@ export class VentasComponent implements OnInit {
   clienteList: Cliente[];
   productoList: Producto[];
   detalleList: Ventadetalle[];
+  ventaList: Venta[];
   buscar2:string;
   buscar:string;
   mydate = Date.now();
@@ -26,11 +29,22 @@ export class VentasComponent implements OnInit {
   algo:number;
   acc=0;
 
-  constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService) { 
+
+  constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService
+    , public ventaService:VentaService) { 
   }
     
   ngOnInit() {
 
+  }
+  onNewVenta(factura:Venta){
+    console.log(factura.fecha+" - "+factura.total);
+    let NewVenta= new Venta;
+    NewVenta.fecha = factura.fecha;
+    NewVenta.subtotal = factura.subtotal;
+    NewVenta.igv = factura.igv;
+    NewVenta.total = factura.total;
+    this.ventaService.insertVenta(NewVenta);
   }
   onNewItem(detalle:Ventadetalle,cantidad:string){
     console.log(detalle.nombre+" - "+cantidad);
@@ -79,15 +93,15 @@ export class VentasComponent implements OnInit {
       })
       if(this.productoList.length===0){
         Swal.fire({
-          position:'top-end',
-          type: "success",
+          position:'center',
+          type: "error",
           title: 'Producto No Encontrado',
           showConfirmButton: true,
           timer: 1500
         })
       }else{
         Swal.fire({
-          position:'top-end',
+          position:'center',
           type: "success",
           title: 'Producto Encontrado',
           showConfirmButton: true,

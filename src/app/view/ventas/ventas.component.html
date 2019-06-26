@@ -79,12 +79,12 @@
 		<form *ngFor="let data of clienteList">
 			<div id="general">
 				<div id="tit"><p>Datos del Cliente</p></div>
-				<div class="row" id="fer" >
+				<div class="row" id="fer" *ngFor="let data of clienteList" >
 					<div class="col-6 col-lg-6 col-xl-6 col-md-6 col-sm-6 ">
 						<div class="row">
 							<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
 								<label><div id="titulo"><b>Nombre:</b></div></label><br>
-								<input type="text" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.nombre}}>
+								<input type="text" style="width: 100%" disabled value={{data.nombre}} name="cliente">
 							</div>
 						</div>
 						<div class="row">
@@ -94,7 +94,7 @@
 							</div>
 							<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
 								<label><div id="titulo"><b>DNI</b></div></label><br>
-								<input type="text" maxlength="8" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.dni}}>
+								<input type="text" maxlength="8" style="width: 100%" disabled value={{data.dni}}>
 							</div>
 						</div>
 					</div>
@@ -102,17 +102,17 @@
 						<div class="row">
 							<div class="col-12 col-lg-12 col-xl-12 col-md-12 col-sm-12">
 								<label><div id="titulo"><b>Direccion</b></div></label> <br>
-								<input type="text" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.direccion}}>
+								<input type="text" style="width: 100%" disabled  value={{data.direccion}} name="direccion">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-5 col-lg-5 col-xl-5 col-md-5 col-sm-5">
 								<label><div id="titulo"><b>Estado</b></div></label> <br>
-								<input type="text" maxlength="10" style="width: 100%" disabled *ngFor="let data of clienteList" value={{data.estado}}>
+								<input type="text" maxlength="10" style="width: 100%" disabled value={{data.estado}}>
 							</div>
 							<div class="col-7 col-lg-7 col-xl-7 col-md-7 col-sm-7">
 								<label><div id="titulo"><b>Comprobante</b></div></label><br>
-								<input type="text" style="width: 100% " disabled *ngFor="let data of clienteList" value={{data.comprobante}}>
+								<input type="text" style="width: 100% " disabled  value={{data.comprobante}}>
 							</div>
 						</div>
 					</div>
@@ -124,7 +124,7 @@
 <div class="row">
   <div class="col-lg-12 .col-xl-12 .col-md-12 .col-sm-12 col-12">
 	<div class="row">
-			<input type="text" value="{{mydate|date:'dd/MM/y'}}" disabled>
+			<input type="text" value="{{mydate|date:'dd/MM/y'}}" disabled name="fecha">
 	</div>
   	<div class="row">
   		<div class="container">
@@ -155,16 +155,16 @@
 					<tbody id="cuerpo">
 						<tr *ngFor="let data of detalleList" >
 							<td>
-								{{data.nombre}}
+								<input type="text" value={{data.nombre}} disabled>
 							</td >
 							<td >
-								{{ data.precio | currency }}
+								<input type="text" value="{{ data.precio | currency }}" disabled>
 							</td>
 							<td>
-								{{data.cantidad}}
+								<input type="text" value={{data.cantidad}} disabled>
 							</td>
 							<td>
-								{{ data.subtotal | currency }}
+								<input type="text" value="{{ data.subtotal | currency }}" disabled>								
 							</td>
 							<td>
 								<input type="submit" id="ttt" (click)="onDelete(data.$key)" value="X" class="btn btn-danger">
@@ -187,21 +187,32 @@
 						<table border="1px">
 							<tr>
 								<td> <b>Valor de Venta:</b></td>
-								<td>{{ total | currency }}</td>
+								<td>
+									<input type="text" value="{{ total | currency }}" disabled name="subtotal">
+								</td>
 							</tr>
 							<tr>
 								<td> <b>IGV:</b></td>
-								<td>{{ igv | currency }}</td>
+								<td>
+									<input type="text" value="{{ igv | currency }}" disabled name="igv">
+								</td>
 							</tr>
 							<tr>
 								<td> <b>Importe Total:</b></td>
-								<td>{{ tototal | currency }}</td>
+								<td>
+									<input type="text" value="{{ tototal | currency }}" disabled name="total">
+								</td>
 							</tr>
 						</table>	
 					</div>
 				</div>
 			</div>		
 		</div>
-  	</div>
+	</div>
+	<div class="row" >
+		<div class="center">
+			<input type="button" id="boton" value="Agregar" *ngFor="let venta of detalleList" (click)="onNewVenta(venta)">
+		</div>
+	</div>
   </div>
 </div>
