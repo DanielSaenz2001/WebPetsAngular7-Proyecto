@@ -10,17 +10,16 @@ export class VentadetallesService {
   selectDetalle: Ventadetalle=new Ventadetalle;
 
   constructor(private firebase:AngularFireDatabase) { 
-    this.detalleList=this.firebase.list('detalles');
+    this.detalleList=this.firebase.list('venta_detalles_temporal');
   }
   getDetalles(){
-    return this.detalleList=this.firebase.list('detalles');
+    return this.detalleList=this.firebase.list('venta_detalles_temporal');
     
   }
   insertDetalle(ventadetalle:Ventadetalle){
     this.detalleList.push({
       nombre:ventadetalle.nombre,
       precio:ventadetalle.precio,
-      stock:ventadetalle.stock,
       subtotal:ventadetalle.subtotal,
       cantidad:ventadetalle.cantidad
     })
@@ -32,7 +31,6 @@ export class VentadetallesService {
     this.detalleList.update(ventadetalle.$key,{
       nombre:ventadetalle.nombre,
       precio:ventadetalle.precio,
-      stock:ventadetalle.stock,
       subtotal:ventadetalle.subtotal,
       cantidad:ventadetalle.cantidad
     })

@@ -52,28 +52,24 @@ export class VentasComponent implements OnInit {
     this.date = Date.now();
     let latest_date =this.datepipe.transform(this.date, 'yyyy-MM-dd');
     let NewFactura= new Fact;
+    NewFactura.cliente = cliente.nombre;
+    NewFactura.direccion= cliente.direccion;
     NewFactura.fecha = String(latest_date);
     NewFactura.subtotal = String(this.total);
     NewFactura.igv = String(this.igv);
     NewFactura.total = String(this.tototal);
     this.factService.insertFact(NewFactura);
   }
-  onNewItem(detalle:Ventadetalle,cantidad:string){
-    console.log(detalle.nombre+" - "+cantidad);
+  onNewItemTest(detalle:Ventadetalle,cantidad:string){
     let subtotal=parseInt(cantidad)*parseFloat(detalle.precio);
-    let antes=detalle.stock;
-    detalle.stock=String(parseInt(antes)-parseInt(cantidad));
 
     let newDetalle = new Ventadetalle;
     newDetalle.nombre = detalle.nombre;
     newDetalle.precio = detalle.precio;
     newDetalle.cantidad = cantidad;
-    newDetalle.stock = detalle.stock;
     newDetalle.subtotal = String(subtotal);
-      //this.data.addTarea(newTarea)
 
     this.ventadetallesService.insertDetalle(newDetalle);
-
 
     return this.ventadetallesService.getDetalles().snapshotChanges().subscribe(item=>{
       this.detalleList=[];
@@ -83,13 +79,41 @@ export class VentasComponent implements OnInit {
         this.detalleList.push(x as Ventadetalle);
       });
       this.total = this.detalleList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)),0);
-        console.log("Total: ", this.total);
       this.igv = this.detalleList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)/100),0);
-        console.log("IGV: ", this.igv);
       this.tototal = this.detalleList.reduce((acc,obj,) => acc + ((parseFloat(obj.subtotal)/100) + (parseFloat(obj.subtotal))) ,0);
-        console.log("tototal: ", this.tototal);
     });
+  }
+  onUpdate(prod:Producto,cantidad:string){
     
+    let antes=prod.stock;
+    prod.stock=String(parseInt(antes)-parseInt(cantidad));
+    console.log(prod.stock);
+
+  }
+  onNewItem(venta:Venta,cantidad:string){
+    let subtotal=parseInt(cantidad)*parseFloat(venta.precio);
+    let newDetalle = new Ventadetalle;
+    newDetalle.nombre = venta.nombre;
+    newDetalle.precio = venta.precio;
+    newDetalle.cantidad = cantidad;
+    newDetalle.subtotal = String(subtotal);
+      //this.data.addTarea(newTarea)
+
+    this.ventaService.insertVenta(newDetalle);
+
+    
+
+    return this.ventaService.getDetalles().snapshotChanges().subscribe(item=>{
+      this.ventaList=[];
+      item.forEach(element=>{
+        let x=element.payload.toJSON();
+        x["$key"]=element.key;
+        this.ventaList.push(x as Ventadetalle);
+      });
+      this.total = this.ventaList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)),0);
+      this.igv = this.ventaList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)/100),0);
+      this.tototal = this.ventaList.reduce((acc,obj,) => acc + ((parseFloat(obj.subtotal)/100) + (parseFloat(obj.subtotal))) ,0);
+    });
   }
 
   consuProducto(){

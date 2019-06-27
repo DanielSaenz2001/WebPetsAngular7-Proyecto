@@ -59,7 +59,7 @@
 					</div>
 					<div class="row" >
 						<div class="center">
-							<input type="button" id="boton" value="Agregar" *ngFor="let producto of productoList" (click)="onNewItem(producto,inputx.value)">
+							<input type="button" id="boton" value="Agregar" *ngFor="let producto of productoList" (click)="onNewItem(producto,inputx.value);"(click)="onNewItemTest(producto,inputx.value);" (click)="onUpdate(producto,inputx.value);">
 						</div>
 					</div>
 				</div>  
@@ -116,6 +116,9 @@
 										<input type="text" style="width: 100% " disabled  value={{data.comprobante}}>
 									</div>
 								</div>
+								<div class="row">
+									<input type="button" id="boton" value="Agregar" (click)="onNewFactura(data)" (click)="onDelete($key)">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -145,9 +148,6 @@
 									<th  id="datost">
 										Acciones.
 									</th>
-									<th  id="datost">
-										Todo.
-									</th>
 								</tr>
 							</thead>
 							<tbody id="cuerpo">
@@ -166,9 +166,6 @@
 									</td>
 									<td>
 										<input type="submit" id="ttt" (click)="onDelete(data.$key)" value="X" class="btn btn-danger">
-									</td>
-									<td>
-										<input type="button" (click)="onDelete($key)" value="X" class="btn btn-danger" id="danger">
 									</td>
 								</tr>
 							</tbody>	
@@ -215,5 +212,4 @@
 			</div>
 		</div>
 	</div>
-	<input type="button" id="boton" value="Agregar" (click)="onNewFactura(data)">
 </div>

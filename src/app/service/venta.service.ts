@@ -10,25 +10,25 @@ export class VentaService {
   selectVenta: Venta=new Venta;
 
   constructor(private firebase:AngularFireDatabase) { 
-    this.ventaList=this.firebase.list('ventas');
+    this.ventaList=this.firebase.list('venta_detalles_permanente');
   }
   getDetalles(){
-    return this.ventaList=this.firebase.list('ventas');
+    return this.ventaList=this.firebase.list('venta_detalles_permanente');
   }
   insertVenta(venta:Venta){
     this.ventaList.push({
-      
+      nombre:venta.nombre,
+      precio:venta.precio,
       subtotal:venta.subtotal,
-      igv:venta.igv,
-      total:venta.total
+      cantidad:venta.cantidad
     })
   }
   udpateVenta(venta:Venta){
     this.ventaList.update(venta.$key,{
-      fecha:venta.fecha,
+      nombre:venta.nombre,
+      precio:venta.precio,
       subtotal:venta.subtotal,
-      igv:venta.igv,
-      total:venta.total
+      cantidad:venta.cantidad
     })
   }
   deleteVenta($key:string){

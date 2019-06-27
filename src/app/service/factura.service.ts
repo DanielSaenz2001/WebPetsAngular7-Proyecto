@@ -18,6 +18,8 @@ export class FacturaService {
   }
   insertFact(fact:Fact){
     this.factList.push({
+      cliente:fact.cliente,
+      direccion:fact.direccion,
       fecha:fact.fecha,
       subtotal:fact.subtotal,
       igv:fact.igv,
@@ -26,6 +28,8 @@ export class FacturaService {
   }
   udpateFact(fact:Fact){
     this.factList.update(fact.$key,{
+      cliente:fact.cliente,
+      direccion:fact.direccion,
       fecha:fact.fecha,
       subtotal:fact.subtotal,
       igv:fact.igv,

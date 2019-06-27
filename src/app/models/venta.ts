@@ -1,7 +1,7 @@
 export class Venta {
     $key:string;
-    total:string;
-    igv:string;
+    nombre:string;
+    precio:string;
     subtotal:string;
-    fecha:string;
+    cantidad:string;
 }
