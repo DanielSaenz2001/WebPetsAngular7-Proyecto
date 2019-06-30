@@ -33,7 +33,7 @@ export class FacturasComponent implements OnInit {
 
     });
 
-    doc.save('{{factList.nombre}}.pdf');
+    doc.save('Factura.pdf');
   }
 
   ngOnInit() {
