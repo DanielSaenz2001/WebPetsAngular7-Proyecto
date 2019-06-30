@@ -1,35 +1,60 @@
 <div class="content" #content >
-  <div >
     <div class="col-lg-12 .col-xl-12 .col-md-12 .col-sm-12 col-12">
-      <table class="table table-hover"  >
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Direccion</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Subtotal</th>
-            <th scope="col">Igv</th>
-            <th scope="col">Total</th>
-            <th scope="col">DownLoad</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let data of factList ; let isLast  = last"  >
-          <tr *ngIf="isLast" >
-            <td scope="row">{{data.$key}}</td>
-            <td>{{data.cliente}}</td>
-            <td>{{data.direccion}}</td>
-            <td>{{data.fecha}}</td>
-            <td>{{data.subtotal}}</td>
-            <td>{{data.igv}}</td>
-            <td>{{data.total}}</td>
-            <td><button (click)="downloadPDF()">PDF</button></td>
-          </tr>
-        </tbody>
-      </table> 
+      <div class="1" *ngFor="let data of factList ; let isLast  = last"  >
+        <div class="2" *ngIf="isLast" >
+          <div id="titulo">
+            <H2>FACTURA ELECTRONICA</H2>
+          </div>
+          <div id="facturas" class="container">
+          <div >
+              <b _ngcontent-vfa-c1="">ID:
+              </b>
+              <p> <br> {{data.$key}}</p>
+          </div>
+        </div>
+          <div id="facturas" class="container">
+              <div >
+                  <b _ngcontent-vfa-c1="">Cliente:
+                  </b>
+                  <p> <br> {{data.cliente}}</p>
+              </div>
+          </div>
+          <div id="facturas" class="container">
+                  <div >
+                      <b _ngcontent-vfa-c1="">Fecha:
+                      </b>
+                      <p> <br> {{data.fecha}}</p>
+                  </div>
+          </div>
+          <div id="facturas" class="container">
+                      <div >
+                          <b _ngcontent-vfa-c1="">Subtotal:
+                          </b>
+                          <p> <br> {{data.subtotal}}</p>
+                      </div>
+          </div>
+          <div id="facturas" class="container">
+                          <div >
+                              <b _ngcontent-vfa-c1="">Direccion:
+                              </b>
+                              <p> <br> {{data.direccion}}</p>
+                          </div>
+          </div>
+          <div id="facturas" class="container">
+                              <div >
+                                  <b _ngcontent-vfa-c1="">Total:
+                                  </b>
+                                  <p> <br> {{data.total}}</p>
+                              </div>
+          </div>
+          
+        </div>
+      </div>
     </div>
   </div>
-</div>
+  <button (click)="downloadPDF()">PDF</button>
+
+
 <div class="col-lg-12 .col-xl-12 .col-md-12 .col-sm-12 col-12">
   <table class="table table-hover"  >
     <thead>
