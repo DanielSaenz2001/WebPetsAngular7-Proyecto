@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { AuthService } from './service/auth.service';
 import { Router } from '@angular/router';
+import { Producto } from '../app/models/producto';
+import { ProductosService } from '../app/service/productos.service';
+import  Swal  from 'sweetalert2';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,8 +13,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   isLogin:boolean;
-
-  constructor(private authService:AuthService, private router:Router) { }
+  productoList: Producto[];
+  buscar:string;
+  constructor(private authService:AuthService, private router:Router,private productosService:ProductosService) { }
 
   ngOnInit() {
     this.authService.getAuth().subscribe(auth=>{
@@ -25,4 +31,5 @@ export class AppComponent {
     this.authService.logout();
     this.router.navigate(['./']);
   }
+  
 }

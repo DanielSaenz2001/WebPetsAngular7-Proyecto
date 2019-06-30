@@ -4,6 +4,7 @@
       <table class="table table-hover"  >
         <thead>
           <tr>
+            <th scope="col">ID</th>
             <th scope="col">Cliente</th>
             <th scope="col">Direccion</th>
             <th scope="col">Fecha</th>
@@ -15,7 +16,8 @@
         </thead>
         <tbody *ngFor="let data of factList ; let isLast  = last"  >
           <tr *ngIf="isLast" >
-            <td scope="row">{{data.cliente}}</td>
+            <td scope="row">{{data.$key}}</td>
+            <td>{{data.cliente}}</td>
             <td>{{data.direccion}}</td>
             <td>{{data.fecha}}</td>
             <td>{{data.subtotal}}</td>
