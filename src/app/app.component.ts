@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './service/auth.service';
 import { Router } from '@angular/router';
-import { Producto } from '../app/models/producto';
-import { ProductosService } from '../app/service/productos.service';
-import  Swal  from 'sweetalert2';
 
 
 @Component({
@@ -13,9 +10,7 @@ import  Swal  from 'sweetalert2';
 })
 export class AppComponent {
   isLogin:boolean;
-  productoList: Producto[];
-  buscar:string;
-  constructor(private authService:AuthService, private router:Router,private productosService:ProductosService) { }
+  constructor(private authService:AuthService, private router:Router) { }
 
   ngOnInit() {
     this.authService.getAuth().subscribe(auth=>{
