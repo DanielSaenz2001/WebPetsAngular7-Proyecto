@@ -23,6 +23,7 @@ import { VentasComponent } from './view/ventas/ventas.component';
 import { ClientesComponent } from './view/clientes/clientes.component';
 import { ClienteListComponent } from './view/clientes/cliente-list/cliente-list.component';
 import { ClienteAddComponent } from './view/clientes/cliente-add/cliente-add.component';
+import { FacturasComponent } from './view/facturas/facturas.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ClienteAddComponent } from './view/clientes/cliente-add/cliente-add.com
     ClientesComponent,
     ClienteListComponent,
     ClienteAddComponent,
+    FacturasComponent,
   ],
   imports: [
     BrowserModule,

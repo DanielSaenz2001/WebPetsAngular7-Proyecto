@@ -9,6 +9,7 @@ import { VentasComponent } from './view/ventas/ventas.component';
 import { LoginComponent } from './view/login/login.component';
 import { AdminComponent } from './view/admin/admin.component';
 import { ClientesComponent } from './view/clientes/clientes.component';
+import { FacturasComponent } from './view/facturas/facturas.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:'ventas',component:VentasComponent},
   {path:'login',component:LoginComponent},
   {path:'admin',component:AdminComponent},
-  {path:'clientes',component:ClientesComponent}
+  {path:'clientes',component:ClientesComponent},
+  {path:'facturas',component:FacturasComponent}
 ];
 
 @NgModule({

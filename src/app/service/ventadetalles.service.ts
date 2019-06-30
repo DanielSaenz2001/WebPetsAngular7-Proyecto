@@ -37,7 +37,7 @@ export class VentadetallesService {
   }
 
   //Metodo para Eliminar un producto (DELETE)
-  deleteDetalle($key:string){
+  deleteDetalle($key){
     this.detalleList.remove($key);
   }
     

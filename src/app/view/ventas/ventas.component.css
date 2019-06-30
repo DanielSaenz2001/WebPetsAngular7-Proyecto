@@ -22,7 +22,10 @@ thead{
 	width: 100%;
 }
 #datost{
-	width: 20%;
+	width: 10%;
+}
+#datost2{
+	width: 1%;
 }
 #buscar{
     padding-left: 10%;
@@ -47,6 +50,7 @@ thead{
 #ttt{
     background-color: #3D403B !important;
     margin: auto;
+    width: 100%;
 }
 #tit{
     color:white;
@@ -105,4 +109,13 @@ input {
 #danger{
     background-color: red !important; 
     color: black;
+}
+#datoss{
+    width: 100%;
+}
+#datos2{
+    width: 10%;
+}
+#datos3{
+    width: 1%;
 }

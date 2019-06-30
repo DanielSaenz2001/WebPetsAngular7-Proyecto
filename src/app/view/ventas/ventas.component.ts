@@ -38,19 +38,33 @@ export class VentasComponent implements OnInit {
   algo:number;
   acc=0;
   fe:string;
-
+  id=1;
+  ID:number;
   
 
   constructor(private clientesService:ClientesService,private productosService:ProductosService, public ventadetallesService:VentadetallesService, public ventaService:VentaService, public factService:FacturaService, private datepipe: DatePipe) { 
  
   }
-    
+  
   ngOnInit() {
- 
+    Swal.fire({
+      position:'center',
+      type: "success",
+      title: 'En la compra del producto, se debe estar seguro en su compra',
+      showConfirmButton:true,
+    });
   }
+  onEditStock(producto:Producto){
+    this.productosService.udpateProducto(producto);
+  }
+  onDelete(id:string){
+    this.ventadetallesService.deleteDetalle(id);
+  }
+
   onNewFactura(cliente:Cliente){
     this.date = Date.now();
     let latest_date =this.datepipe.transform(this.date, 'yyyy-MM-dd');
+    
     let NewFactura= new Fact;
     NewFactura.cliente = cliente.nombre;
     NewFactura.direccion= cliente.direccion;
@@ -58,49 +72,21 @@ export class VentasComponent implements OnInit {
     NewFactura.subtotal = String(this.total);
     NewFactura.igv = String(this.igv);
     NewFactura.total = String(this.tototal);
-    this.factService.insertFact(NewFactura);
-  }
-  onNewItemTest(detalle:Ventadetalle,cantidad:string){
-    let subtotal=parseInt(cantidad)*parseFloat(detalle.precio);
-
-    let newDetalle = new Ventadetalle;
-    newDetalle.nombre = detalle.nombre;
-    newDetalle.precio = detalle.precio;
-    newDetalle.cantidad = cantidad;
-    newDetalle.subtotal = String(subtotal);
-
-    this.ventadetallesService.insertDetalle(newDetalle);
-
-    return this.ventadetallesService.getDetalles().snapshotChanges().subscribe(item=>{
-      this.detalleList=[];
-      item.forEach(element=>{
-        let x=element.payload.toJSON();
-        x["$key"]=element.key;
-        this.detalleList.push(x as Ventadetalle);
-      });
-      this.total = this.detalleList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)),0);
-      this.igv = this.detalleList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)/100),0);
-      this.tototal = this.detalleList.reduce((acc,obj,) => acc + ((parseFloat(obj.subtotal)/100) + (parseFloat(obj.subtotal))) ,0);
-    });
-  }
-  onUpdate(prod:Producto,cantidad:string){
     
-    let antes=prod.stock;
-    prod.stock=String(parseInt(antes)-parseInt(cantidad));
-    console.log(prod.stock);
-
+    this.factService.insertFact(NewFactura);
   }
   onNewItem(venta:Venta,cantidad:string){
     let subtotal=parseInt(cantidad)*parseFloat(venta.precio);
+
     let newDetalle = new Ventadetalle;
+    
     newDetalle.nombre = venta.nombre;
     newDetalle.precio = venta.precio;
     newDetalle.cantidad = cantidad;
     newDetalle.subtotal = String(subtotal);
       //this.data.addTarea(newTarea)
-
     this.ventaService.insertVenta(newDetalle);
-
+    
     
 
     return this.ventaService.getDetalles().snapshotChanges().subscribe(item=>{
@@ -115,6 +101,35 @@ export class VentasComponent implements OnInit {
       this.tototal = this.ventaList.reduce((acc,obj,) => acc + ((parseFloat(obj.subtotal)/100) + (parseFloat(obj.subtotal))) ,0);
     });
   }
+  onNewItemTest(detalle:Ventadetalle,cantidad:string){
+    let subtotal=parseInt(cantidad)*parseFloat(detalle.precio);
+
+    let newDetalle = new Ventadetalle;
+    newDetalle.nombre = detalle.nombre;
+    newDetalle.precio = detalle.precio;
+    newDetalle.cantidad = cantidad;
+    newDetalle.subtotal = String(subtotal);
+    this.ventadetallesService.insertDetalle(newDetalle);
+
+    return this.ventadetallesService.getDetalles().snapshotChanges().subscribe(item=>{
+      this.detalleList=[];
+      item.forEach(element=>{
+        let x=element.payload.toJSON();
+        x["$key"]=element.key;
+        this.detalleList.push(x as Ventadetalle);
+      });
+      this.total = this.detalleList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)),0);
+      this.igv = this.detalleList.reduce((acc,obj,) => acc + (parseFloat(obj.subtotal)/100),0);
+      this.tototal = this.detalleList.reduce((acc,obj,) => acc + ((parseFloat(obj.subtotal)/100) + (parseFloat(obj.subtotal))) ,0);
+
+    });
+  }
+  onUpdate(prod:Producto,cantidad:string){
+    
+    let antes=prod.stock;
+    prod.stock=String(parseInt(antes)-parseInt(cantidad));
+
+  }
 
   consuProducto(){
     this.productosService.getProductos().snapshotChanges().subscribe(item=>{
@@ -126,7 +141,7 @@ export class VentasComponent implements OnInit {
       });
       this.productoList=this.productoList.filter(data=>{
         return data.codigo.toString().trim()===this.buscar2;   
-      })
+      });
       if(this.productoList.length===0){
         Swal.fire({
           position:'center',
@@ -134,18 +149,9 @@ export class VentasComponent implements OnInit {
           title: 'Producto No Encontrado',
           showConfirmButton: true,
           timer: 1500
-        })
-      }else{
-        Swal.fire({
-          position:'center',
-          type: "success",
-          title: 'Producto Encontrado',
-          showConfirmButton: true,
-          timer: 1500
-      })
-    }
-    
-    })
+        });
+      }
+    });
     
   }
 
@@ -180,8 +186,4 @@ export class VentasComponent implements OnInit {
     }
     })
   }
-  onDelete($key:string){
-    this.ventadetallesService.deleteDetalle($key);
-  }
-  
 }
