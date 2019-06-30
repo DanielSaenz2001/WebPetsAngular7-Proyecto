@@ -7,3 +7,12 @@ text-align: center;
 #descarga{
     text-align: center;
 }
+#rows{
+    width: 0%;
+}
+#cols{
+    width: 1%;
+}
+#shu{
+    margin-left: -3%;
+}

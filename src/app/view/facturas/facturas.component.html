@@ -61,31 +61,35 @@
     </div>
   </div>
   <div id="descarga"><button (click)="downloadPDF()">DescargarFactura</button></div>
-
-<div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-12">
-  <table class="table table-hover"  >
-    <thead>
-      <tr>
-        <th scope="col">Cliente</th>
-        <th scope="col">Direccion</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Subtotal</th>
-        <th scope="col">Igv</th>
-        <th scope="col">Total</th>
-      </tr>
-    </thead>
-    <tbody >
-      <tr *ngFor="let data of factList">
-        <td scope="row">{{data.cliente}}</td>
-        <td>{{data.direccion}}</td>
-        <td>{{data.fecha}}</td>
-        <td>{{data.subtotal}}</td>
-        <td>{{data.igv}}</td>
-        <td>{{data.total}}</td>
-      </tr>
-    </tbody>
-  </table> 
+<div class="row">
+    <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-12" id="shu">
+        <div class="container">
+            <table class="table table-hover"  >
+                <thead>
+                  <tr>
+                    <th scope="col" id="cols">Cli.</th>
+                    <th scope="col" id="cols">Dir.</th>
+                    <th scope="col" id="cols">Fec.</th>
+                    <th scope="col" id="cols">Subt</th>
+                    <th scope="col" id="cols">Igv</th>
+                    <th scope="col" id="cols">Tot</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr *ngFor="let data of factList">
+                    <td scope="row">{{data.cliente}}</td>
+                    <td id="rows">{{data.direccion}}</td>
+                    <td id="rows">{{data.fecha}}</td>
+                    <td id="rows">{{data.subtotal}}</td>
+                    <td id="rows">{{data.igv}}</td>
+                    <td id="rows"   >{{data.total}}</td>
+                  </tr>
+                </tbody>
+              </table> 
+        </div>
+      </div>
 </div>
+
   
 
 
